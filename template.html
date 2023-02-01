@@ -48,7 +48,9 @@
         {{range .}}
         <tr>
           <td>{{ .id }}</td>
-          <td>{{ .name }}</td>
+          <td>
+            <a href="https://universalis.app/market/{{ .id }}">{{ .name }}</a>
+          </td>
           <td>{{ .nqworldname }}</td>
           <td>{{ .nqdc }}</td>
           <td>{{ .nqsalevelocity }}</td>
