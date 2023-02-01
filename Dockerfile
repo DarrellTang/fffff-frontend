@@ -11,5 +11,6 @@ FROM alpine:latest
 WORKDIR /app
 
 COPY --from=builder /app/fffff-frontend .
+COPY --from=builder /app/template.html .
 
 ENTRYPOINT ["./fffff-frontend"]
