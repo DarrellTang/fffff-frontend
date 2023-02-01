@@ -3,10 +3,66 @@
   <head>
     <meta charset="UTF-8">
     <title>Shopping List</title>
+    <style>
+    table.GeneratedTable {
+      width: 100%;
+      background-color: #ffffff;
+      border-collapse: collapse;
+      border-width: 2px;
+      border-color: #ffcc00;
+      border-style: solid;
+      color: #000000;
+    }
+
+    table.GeneratedTable td, table.GeneratedTable th {
+      border-width: 2px;
+      border-color: #ffcc00;
+      border-style: solid;
+      padding: 3px;
+    }
+
+    table.GeneratedTable thead {
+      background-color: #ffcc00;
+    }
+    </style>
   </head>
   <body>
-    {{range .}}
+
+    <table class="GeneratedTable">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>Name</th>
+          <th>World Name</th>
+          <th>Datacenter</th>
+          <th>Sale Velocity</th>
+          <th>Price</th>
+          <th>Home Price</th>
+          <th>Margin</th>
+          <th>Stack Size</th>
+          <th>Total Margin</th>
+          <th>Last Updated</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{range .}}
+        <tr>
+          <td>{{ .id }}</td>
+          <td>{{ .name }}</td>
+          <td>{{ .nqworldname }}</td>
+          <td>{{ .nqdc }}</td>
+          <td>{{ .nqsalevelocity }}</td>
+          <td>{{ .nqprice }}</td>
+          <td>{{ .nqhomeprice }}</td>
+          <td>{{ .nqmargin }}</td>
+          <td>{{ .stacksize }}</td>
+          <td>{{ .totalmargin }}</td>
+          <td>{{ .timezone }}</td>
+        </tr>
+        {{end}}
+      </tbody>
+    </table>
+
     <h1>{{.name}}</h1>
-    {{end}}
   </body>
 </html>
