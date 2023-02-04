@@ -7,6 +7,11 @@ import (
 	"go.uber.org/zap"
 )
 
+type AllData struct {
+  NQData interface{}
+  HQData interface{}
+}
+
 var slogger *zap.SugaredLogger
 func main() {
 	InitLogger()
@@ -34,13 +39,13 @@ func nq(w http.ResponseWriter, r *http.Request) {
   }
   defer hqresponse.Body.Close()
 
-  var data interface{}
-  if err := json.NewDecoder(nqresponse.Body).Decode(&data); err != nil {
+  var allData AllData
+  if err := json.NewDecoder(nqresponse.Body).Decode(&allData.NQData); err != nil {
     http.Error(w, err.Error(), http.StatusInternalServerError)
     return
   }
 
-  if err := json.NewDecoder(hqresponse.Body).Decode(&data); err != nil {
+  if err := json.NewDecoder(hqresponse.Body).Decode(&allData.HQData); err != nil {
     http.Error(w, err.Error(), http.StatusInternalServerError)
     return
   }
@@ -51,7 +56,7 @@ func nq(w http.ResponseWriter, r *http.Request) {
     return
   }
 
-  if err := tmpl.Execute(w, data); err != nil {
+  if err := tmpl.Execute(w, allData); err != nil {
     http.Error(w, err.Error(), http.StatusInternalServerError)
     return
   }
