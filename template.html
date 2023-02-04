@@ -29,6 +29,7 @@
   <body>
 
     <h1>Normal Quality</h1>
+    {{ if .NQData}}
     <table class="GeneratedTable">
       <thead>
         <tr>
@@ -65,8 +66,12 @@
         {{end}}
       </tbody>
     </table>
+    {{ else }}
+      <p>No Normal Quality items meet the criteria</p>
+    {{ end }}
 
     <h1>High Quality</h1>
+    {{ if .HQData}}
     <table class="GeneratedTable">
       <thead>
         <tr>
@@ -101,6 +106,9 @@
           <td>{{ .timezone }}</td>
         </tr>
         {{end}}
+    {{ else }}
+      <p>No High Quality items meet the criteria</p>
+    {{ end }}
       </tbody>
     </table>
 
