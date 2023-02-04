@@ -45,22 +45,23 @@
         </tr>
       </thead>
       <tbody>
-        {{range .}}
-        <tr>
-          <td>{{ .NQData.id }}</td>
-          <td>
-            <a href="https://universalis.app/market/{{ .id }}">{{ .name }}</a>
-          </td>
-          <td>{{ .NQData.nqworldname }}</td>
-          <td>{{ .NQData.nqdc }}</td>
-          <td>{{ .NQData.nqsalevelocity }}</td>
-          <td>{{ .NQData.nqprice }}</td>
-          <td>{{ .NQData.nqhomeprice }}</td>
-          <td>{{ .NQData.nqmargin }}</td>
-          <td>{{ .NQData.stacksize }}</td>
-          <td>{{ .NQData.totalmargin }}</td>
-          <td>{{ .NQData.timezone }}</td>
-        </tr>
+        {{ . }}
+        <!-- {{range .}} -->
+        <!-- <tr> -->
+        <!--   <td>{{ .NQData.id }}</td> -->
+        <!--   <td> -->
+        <!--     <a href="https://universalis.app/market/{{ .id }}">{{ .name }}</a> -->
+        <!--   </td> -->
+        <!--   <td>{{ .NQData.nqworldname }}</td> -->
+        <!--   <td>{{ .NQData.nqdc }}</td> -->
+        <!--   <td>{{ .NQData.nqsalevelocity }}</td> -->
+        <!--   <td>{{ .NQData.nqprice }}</td> -->
+        <!--   <td>{{ .NQData.nqhomeprice }}</td> -->
+        <!--   <td>{{ .NQData.nqmargin }}</td> -->
+        <!--   <td>{{ .NQData.stacksize }}</td> -->
+        <!--   <td>{{ .NQData.totalmargin }}</td> -->
+        <!--   <td>{{ .NQData.timezone }}</td> -->
+        <!-- </tr> -->
         {{end}}
       </tbody>
     </table>
