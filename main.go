@@ -9,7 +9,7 @@ import (
 
 type AllData struct {
   NQData interface{}
-  HQData interface{}
+  // HQData interface{}
 }
 
 var slogger *zap.SugaredLogger
@@ -32,12 +32,12 @@ func nq(w http.ResponseWriter, r *http.Request) {
   }
   defer nqresponse.Body.Close()
 
-  hqresponse, err := http.Get("http://fffff-api/hq")
-  if err != nil {
-    http.Error(w, err.Error(), http.StatusInternalServerError)
-    return
-  }
-  defer hqresponse.Body.Close()
+  // hqresponse, err := http.Get("http://fffff-api/hq")
+  // if err != nil {
+  //   http.Error(w, err.Error(), http.StatusInternalServerError)
+  //   return
+  // }
+  // defer hqresponse.Body.Close()
 
   var allData AllData
   if err := json.NewDecoder(nqresponse.Body).Decode(&allData.NQData); err != nil {
@@ -45,10 +45,10 @@ func nq(w http.ResponseWriter, r *http.Request) {
     return
   }
 
-  if err := json.NewDecoder(hqresponse.Body).Decode(&allData.HQData); err != nil {
-    http.Error(w, err.Error(), http.StatusInternalServerError)
-    return
-  }
+  // if err := json.NewDecoder(hqresponse.Body).Decode(&allData.HQData); err != nil {
+  //   http.Error(w, err.Error(), http.StatusInternalServerError)
+  //   return
+  // }
 
   tmpl, err := template.ParseFiles("template.html")
   if err != nil {
