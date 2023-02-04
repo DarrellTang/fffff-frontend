@@ -28,6 +28,8 @@
   </head>
   <body>
 
+    {{ . }}
+
     <table class="GeneratedTable">
       <thead>
         <tr>
@@ -45,7 +47,6 @@
         </tr>
       </thead>
       <tbody>
-        {{ . }}
         <!-- {{range .}} -->
         <!-- <tr> -->
         <!--   <td>{{ .NQData.id }}</td> -->
@@ -62,7 +63,7 @@
         <!--   <td>{{ .NQData.totalmargin }}</td> -->
         <!--   <td>{{ .NQData.timezone }}</td> -->
         <!-- </tr> -->
-        {{end}}
+        <!-- {{end}} -->
       </tbody>
     </table>
 
