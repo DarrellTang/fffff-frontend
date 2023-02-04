@@ -28,6 +28,7 @@
   </head>
   <body>
 
+    <h1>Normal Quality</h1>
     <table class="GeneratedTable">
       <thead>
         <tr>
@@ -57,6 +58,44 @@
           <td>{{ .nqprice }}</td>
           <td>{{ .nqhomeprice }}</td>
           <td>{{ .nqmargin }}</td>
+          <td>{{ .stacksize }}</td>
+          <td>{{ .totalmargin }}</td>
+          <td>{{ .timezone }}</td>
+        </tr>
+        {{end}}
+      </tbody>
+    </table>
+
+    <h1>High Quality</h1>
+    <table class="GeneratedTable">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>Name</th>
+          <th>World Name</th>
+          <th>Datacenter</th>
+          <th>Sale Velocity</th>
+          <th>Price</th>
+          <th>Home Price</th>
+          <th>Margin</th>
+          <th>Stack Size</th>
+          <th>Total Margin</th>
+          <th>Last Updated</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{ range .HQData }}
+        <tr>
+          <td>{{ .id }}</td>
+          <td>
+            <a href="https://universalis.app/market/{{ .id }}">{{ .name }}</a>
+          </td>
+          <td>{{ .hqworldname }}</td>
+          <td>{{ .hqdc }}</td>
+          <td>{{ .hqsalevelocity }}</td>
+          <td>{{ .hqprice }}</td>
+          <td>{{ .hqhomeprice }}</td>
+          <td>{{ .hqmargin }}</td>
           <td>{{ .stacksize }}</td>
           <td>{{ .totalmargin }}</td>
           <td>{{ .timezone }}</td>
